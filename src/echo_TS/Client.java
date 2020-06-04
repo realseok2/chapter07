@@ -15,18 +15,18 @@ public class Client {
 
 	public static void main(String[] args) throws IOException {
 
-		// Socket 객체를 생성합니다.
+		// Socket 객체를 생성합니다.-------------------------------------------------3번
 		Socket socket = new Socket();
 
 		System.out.println("<클라이언트 시작>");
 		System.out.println("============================");
 
-		// Socket.connect를 통하여 서버와 연결을 합니다.
+		// Socket.connect를 통하여 서버와 연결을 합니다.--------------------------4번
 		System.out.println("[서버에 연결을 요청합니다.]");
 		socket.connect(new InetSocketAddress("192.168.0.121", 10001));
 		System.out.println("[서버에 연결되었습니다.]");
 
-		// Client가 메세지 발신 Stream
+		// Client가 메세지 발신 Stream---------------------------------------------6번
 		// 서버에 메세지를 보내는 용도이기 때문에 Output을 사용합니다.
 		// Buffered는 쟁반이라는 그릇에 담아 한번에 작업을 합니다.
 		// 쟁반 안에 양이 가득차지 않으면 보내주지 않기 때문에 bw.flush()를 사용하여 강제로 보내줍니다.
@@ -34,7 +34,7 @@ public class Client {
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
 
-		// Client가 메세지 수신 Stream
+		// Client가 메세지 수신 Stream--------------------------------------------9번
 		InputStream is = socket.getInputStream();
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);

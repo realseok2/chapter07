@@ -17,14 +17,14 @@ public class Server {
 
 	public static void main(String[] args) throws IOException {
 
-		// ServerSocket 객체 생성
+		// ServerSocket 객체 생성-------------------------------------------------1번
 		ServerSocket serverSocket = new ServerSocket();
 
-		// bind 연결
-		// InetSocketAddress에는 "" 안에 아이피 주소를 넣고 뒤에 번호를 넣습니다.
+		// bind 연결-----------------------------------------------------------------2번
+		// InetSocketAddress에는 "" 안에 아이피 주소를 넣고 뒤에 포트번호를 넣습니다.
 		serverSocket.bind(new InetSocketAddress("192.168.0.121", 10001));
 
-		// serverSocket.accept()를 통하여 클라이언트와의 연결을 허용합니다.
+		// serverSocket.accept()를 통하여 클라이언트와의 연결을 허용합니다.----5번
 		System.out.println("<서버시작>");
 		System.out.println("================================");
 		System.out.println("[연결을 기다리고 있습니다.]");
@@ -32,12 +32,12 @@ public class Server {
 
 		System.out.println("[클라이언트와 연결되었습니다.]");
 
-		// server가 메세지 수신 Stream
+		// server가 메세지 수신 Stream------------------------------------------7번
 		InputStream is = socket.getInputStream();
 		InputStreamReader isr = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(isr);
 
-		// server가 메세지 발신 Stream
+		// server가 메세지 발신 Stream------------------------------------------8번
 		OutputStream os = socket.getOutputStream();
 		OutputStreamWriter osw = new OutputStreamWriter(os);
 		BufferedWriter bw = new BufferedWriter(osw);
